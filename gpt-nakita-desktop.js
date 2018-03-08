@@ -1,3 +1,4 @@
+// Update March 9, 2018
 // <!-- BEGIN CRITEO LOADER -->
     // Load Criteo asynchronously
 	window.Criteo = window.Criteo || {};
