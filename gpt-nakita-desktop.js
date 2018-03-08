@@ -1,4 +1,15 @@
 // Update March 9, 2018
+
+//<!-- Cxense script begin -->
+var cX = cX || {}; cX.callQueue = cX.callQueue || [];
+cX.callQueue.push(['setSiteId', '1131749162413357813']);
+cX.callQueue.push(['sendPageViewEvent']);
+
+(function(d,s,e,t){e=d.createElement(s);e.type='text/java'+s;e.async='async';
+e.src='http'+('https:'===location.protocol?'s://s':'://')+'cdn.cxense.com/cx.js';
+t=d.getElementsByTagName(s)[0];t.parentNode.insertBefore(e,t);})(document,'script');
+//<!-- Cxense script end -->
+
 // <!-- BEGIN CRITEO LOADER -->
     // Load Criteo asynchronously
 	window.Criteo = window.Criteo || {};
@@ -49,7 +60,9 @@
       node.parentNode.insertBefore(wtads, node);
 })();
 //<!-- Endof Pubmatic -->
-    
+
+var cX = cX || {}; cX.callQueue = cX.callQueue || [];
+cX.callQueue.push(['invoke', function() {
 	googletag.cmd.push(function() {	
         // Define the ad slots
 		gptadslots.push(googletag.defineSlot('/31800665/TABLOIDNAKITA', [[970,90], [970,250]], 'div-gpt-ad-8464799-1').setTargeting('Pos', ['Top_1']).addService(googletag.pubads()));
@@ -85,10 +98,26 @@
 		googletag.enableServices();	
         
 	});
+}]);
+
+// Async load of cx.js
+  (function(d,s,e,t){e=d.createElement(s);e.type='text/java'+s;e.async='async';
+  e.src='http'+('https:'===location.protocol?'s://s':'://')+'cdn.cxense.com/cx.js';
+  t=d.getElementsByTagName(s)[0];t.parentNode.insertBefore(e,t);})(document,'script');
 
     //Dependencies of GPT in body tag
+cX.callQueue.push(['invoke', function() {
     googletag.cmd.push(function() { googletag.display('div-gpt-ad-8464799-1'); }); //Top_1
+}]);
+cX.callQueue.push(['invoke', function() {
     googletag.cmd.push(function() { googletag.display('div-gpt-ad-8464799-2'); }); //Giant
+}]);
+cX.callQueue.push(['invoke', function() {
     googletag.cmd.push(function() { googletag.display('div-gpt-ad-8464799-4'); }); //MR3
+}]);
+cX.callQueue.push(['invoke', function() {
     googletag.cmd.push(function() { googletag.display('div-gpt-ad-8464799-HorAd'); }); //Horizontal_Ad
+}]);
+cX.callQueue.push(['invoke', function() {
     googletag.cmd.push(function() { googletag.display('div-gpt-ad-8464799-0'); }); //Popup
+}]);
