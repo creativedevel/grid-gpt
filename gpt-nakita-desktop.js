@@ -1,4 +1,4 @@
-// Update March 9, 2018
+// Update March 8, 2018
 
 //<!-- Cxense script begin -->
 var cX = cX || {}; cX.callQueue = cX.callQueue || [];
@@ -34,7 +34,7 @@ t=d.getElementsByTagName(s)[0];t.parentNode.insertBefore(e,t);})(document,'scrip
             gads.async = true; gads.type = 'text/javascript';
             var useSSL = 'https:' == document.location.protocol;
             gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
-            var node = document.getElementsByTagName('script')[0];
+            var node = document.getElementsByTagName('script')[1];
             node.parentNode.insertBefore(gads, node);
         })();
       };
