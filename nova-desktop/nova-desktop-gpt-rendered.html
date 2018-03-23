@@ -294,8 +294,8 @@ $(function(){var a=$("#loadartikel");$("#load_more").click(function(){var o=$(th
         if(slotSkinTrigger === event.slot){
             var dfp_lineItemId = event.lineItemId;
             var dfp_creativeId = event.creativeId;
-            console.log("Skinad Trigger - Line Item ID : "+dfp_lineItemId+"&213"); 
-            console.log("Skinad Trigger - Creative ID : "+dfp_creativeId+"&213");
+            console.log("Skinad Trigger - Line Item ID : "+dfp_lineItemId+"&"+Math.floor(new Date().getTime()); 
+            console.log("Skinad Trigger - Creative ID : "+dfp_creativeId+"&"+Math.floor(new Date().getTime());
             
             if(dfp_lineItemId != null && dfp_creativeId != null) {
                skinadStatus = true;
