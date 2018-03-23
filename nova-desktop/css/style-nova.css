@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+/*Main Color*/
+
+.mainmenu,
+.dd,
+.head-channel a,
+.sy-pager li.sy-active a,
+.tagpop a:hover,
+.paging_box a, 
+.paging_box-series a,
+.kanal_terbaru a ,
+.list_title span,
+.latest_title span,
+.tagpop a,
+.paging_box-series,
+.relatedbox span  {
+	background: #D9306B;
+}
+
+
+.sy-pager li.sy-active a{
+	background: #D9306B !important;
+}
+
+/*Sub Color*/
+
+.list_title,
+.latest_title,
+.paging_box,
+.relatedbox {
+	background: #FEBED5;
+}
+
+.mainmenu ul li a:hover{
+	color: #FEBED5;
+}
+
+
+
+/*Border*/
+.latest_title {
+	border-bottom: 2px solid #D9306B;
+}
+
+.list_title {
+	border-bottom: 1px solid #D9306B;	
+}
+
+
+/*{
+	background: #e15b8a /*altpink;
+}*/
+
+.trend_tx .tagpop a,
+.trend_tx .tagpop a:hover{
+	color: #ffffff;
+}
+
+/*text*/
+.nav-tulisan a:first-child, 
+.nav-tulisan a:last-child, 
+.tag-tulisan a,
+.latest_tx a,
+.trend_tx a,
+.remahanroti ul li,
+.isi-tulisan a,
+.zodiac-desc h2,
+.zodiac-other h2,
+.zodiac-profile-text span{
+	color: #D9306B;
+}
+
+.trend_tx a:hover,
+.latest_tx a:hover,
+.tag-tulisan a:hover,
+.isi-tulisan a:hover{
+	color: #D9306B;
+	text-decoration: underline;
+}
+
+.head-channel a:hover,
+.kanal_terbaru a:hover {
+	background: #aa1f5f;
+}
+
+/*bg left-box*/
+.latest_box {
+	background: #D0E8F5; /*blue*/
+}
+
+
+.remahanroti ul li {
+	list-style-image: url(../images/bullets-nova_03.png);
+}
+
+
+/*Horoskop Page*/
+.latest-horoskop{
+	padding-bottom: 10px;
+}
+
+.zodiac-img{
+	float: left;
+	margin-right: 60px;
+	padding: 20px;
+	border: 1px solid #D9306B;
+}
+
+.zodiac-desc h2,
+.zodiac-other h2{
+	margin: 0 0 10px 0;
+}
+
+.zodiac-desc{
+	float: left;
+	width: 50%;
+}
+
+.zodiac-other{
+	margin: 0;
+	padding: 0;
+}
+
+.zodiac-other li{
+	float: left;
+	margin: 0 20px 10px 0;
+	width: 20%;
+	text-align: center;
+}
+
+.zodiac-other li a{
+	display: block;
+}
+
+.zodiac-other li img{
+	width: 100%;
+	border: 1px solid #D9306B;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.profile-title{
+	font-size: 32px;
+}
+
+.zodiac-profile-img{
+	float: left;
+	margin-right: 20px;
+}
+
+.zodiac-profile-text{
+	float: left;
+}
+
+.zodiac-profile-text li a{
+	line-height: 32px;
+}
+
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+} 
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+.wrap {
+	padding:0 10px;
+	background-color:#fff;
+}
+
+.whitebox {
+	padding:0px;
+}
+
+.fix:before,
+.fix:after {
+  content: "";
+  display: table;
+} 
+.fix:after {
+  clear: both;
+}
+.fix {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.skin-left, .skin-right {
+	width:100px; height:500px; position:fixed; top:213px; margin-left:-110px; display: block; z-index: 10;
+}
+
+.skin-right {
+	margin-left:1135px;
+}
