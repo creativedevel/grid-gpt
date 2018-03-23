@@ -286,12 +286,12 @@ $(function(){var a=$("#loadartikel");$("#load_more").click(function(){var o=$(th
                skinadStatus = true;
                 // Activate the Left Skinad
                 slotSkinLeft.addService(googletag.pubads());
-                googletag.display('div-gpt-ad-skin-left');
+                googletag.display('div-gpt-skinleft');
                 googletag.pubads().refresh([slotSkinLeft]);
                 
                 // Activate the Right Skinad
                 slotSkinRight.addService(googletag.pubads());
-                googletag.display('div-gpt-ad-skin-right');
+                googletag.display('div-gpt-skinright');
                 googletag.pubads().refresh([slotSkinRight]);
             }
             console.log("Skinad Status : "+skinadStatus);                
