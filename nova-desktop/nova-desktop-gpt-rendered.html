@@ -306,6 +306,8 @@ $(function(){var a=$("#loadartikel");$("#load_more").click(function(){var o=$(th
                 slotSkinRight.addService(googletag.pubads());
                 googletag.display('div-gpt-skinright');
                 googletag.pubads().refresh([slotSkinRight]);
+                
+                console.log ("url now = "+addParameterToURL(skinad_status));
             }
             
             if(window.location.href == ""+addParameterToURL(skinad_status)){
