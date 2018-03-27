@@ -306,23 +306,15 @@ $(function(){var a=$("#loadartikel");$("#load_more").click(function(){var o=$(th
                 slotSkinRight.addService(googletag.pubads());
                 googletag.display('div-gpt-skinright');
                 googletag.pubads().refresh([slotSkinRight]);
-                
-                console.log ("url now = "+addParameterToURL(skinad_status));
             }
             
-            if(window.location.href == ""+addParameterToURL(skinad_status)){
+            if(window.location.search == "?skinad_status"){
+                console.log("Checked Url = "+window.location.search);
                 console.log("Skinad Status : "+skinadStatus); 
-                console.log("Skinad Trigger - Line Item ID : "+dfp_lineItemId+"&213"); 
-                console.log("Skinad Trigger - Creative ID : "+dfp_creativeId+"&213");
+                console.log("Skinad Trigger : "+dfp_lineItemId+"&"+dfp_creativeId); 
             }            
         }
     });   
-      
-    function addParameterToURL(param){
-        ads_url = location.href;
-        ads_url += (_url.split('?')[1] ? '&':'?') + param;
-        return ads_url;
-    }
       
       
     // RTB Ads
