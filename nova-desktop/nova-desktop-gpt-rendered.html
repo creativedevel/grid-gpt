@@ -307,9 +307,20 @@ $(function(){var a=$("#loadartikel");$("#load_more").click(function(){var o=$(th
                 googletag.display('div-gpt-skinright');
                 googletag.pubads().refresh([slotSkinRight]);
             }
-            console.log("Skinad Status : "+skinadStatus);                
+            
+            if(window.location.href == ""+addParameterToURL(skinad_status)){
+                console.log("Skinad Status : "+skinadStatus); 
+                console.log("Skinad Trigger - Line Item ID : "+dfp_lineItemId+"&213"); 
+                console.log("Skinad Trigger - Creative ID : "+dfp_creativeId+"&213");
+            }            
         }
-    });     
+    });   
+      
+    function addParameterToURL(param){
+        ads_url = location.href;
+        ads_url += (_url.split('?')[1] ? '&':'?') + param;
+        return ads_url;
+    }
       
       
     // RTB Ads
