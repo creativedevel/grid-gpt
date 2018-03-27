@@ -278,9 +278,7 @@ $(function(){var a=$("#loadartikel");$("#load_more").click(function(){var o=$(th
         if(slotSkinTrigger === event.slot){
             var dfp_lineItemId = event.lineItemId;
             var dfp_creativeId = event.creativeId;
-            console.log("Skinad Trigger - Line Item ID : "+dfp_lineItemId+"&"+Math.floor(new Date().getDate())); 
-            console.log("Skinad Trigger - Creative ID : "+dfp_creativeId+"&"+Math.floor(new Date().getDate()));
-            
+
             if(dfp_lineItemId != null && dfp_creativeId != null) {
                skinadStatus = true;
                 // Activate the Left Skinad
