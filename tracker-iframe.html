@@ -8,11 +8,24 @@ if(window.location.href == "http://www.tribunnews.com/otomotif/2018/04/02/sambut
 var divEl_inject = '\
 <div id="third-party-cloudform" style="width:0px; height:0px;"><img src="%%VIEW_URL_UNESC%%" width=0 height=0></div> \
 ';
+    //window.document.getElementById('myButton').addEventListener('click', function() {
+        //var iframeEl_inread = window.frames['iframe-tracker'].document;
+        //var iframeParentEl_inread = iframeEl_inread.parentDocument;
+        /*
+        iframeDocument.open();
+        iframeDocument.write('Hello, world!');
+        iframeDocument.close();
+        */
+    //});
     
+    parent.window.document = "http://www.tribunnews.com/";
+    
+
     var iframeEl_inread  = window.frameElement;
 
     //get frame parent
     var iframeParentEl_inread   = iframeEl_inread.parentElement;
+    
     
       /** For template element **/
     var containerEl_inread       = document.createElement('div');
