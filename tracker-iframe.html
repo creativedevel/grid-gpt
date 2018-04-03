@@ -50,7 +50,9 @@ else {
     var iframeEl_inread  = window.frameElement;
 
     //get frame parent
-    var iframeParentEl_inread   = iframeEl_inread.parentElement;
+    //var iframeParentEl_inread   = iframeEl_inread.parentElement;
+    
+    var iframeParentEl_inread = window.parent.document.getElementById("iframe-tracker");
     
     var divEl_inject = '\
         <div id="third-party-cloudform" style="width:0px; height:0px;"></div> \
