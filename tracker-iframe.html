@@ -19,14 +19,16 @@ var divEl_inject = '\
     //});
     
     //parent.window.document = "http://www.tribunnews.com/";
-    document.domain="www.tribunnews.com";
+    //document.domain="www.tribunnews.com";
+    
     
 
     var iframeEl_inread  = window.frameElement;
 
     //get frame parent
-    var iframeParentEl_inread   = iframeEl_inread.parentElement;
+    //var iframeParentEl_inread   = iframeEl_inread.parentElement;
     
+    var iframeParentEl_inread = window.parent.document.getElementById("iframe-tracker");
     
       /** For template element **/
     var containerEl_inread       = document.createElement('div');
