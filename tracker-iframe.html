@@ -1,11 +1,12 @@
 <script type="text/javascript">
-    
-var script_inject1 = ' \
+   
+if(window.location.href == "http://www.tribunnews.com/otomotif/2018/04/02/sambutan-hangat-masyarakat-indonesia-hasilkan-penghargaan-untuk-xpander" || window.location.href == "http://m.tribunnews.com/otomotif/2018/04/02/sambutan-hangat-masyarakat-indonesia-hasilkan-penghargaan-untuk-xpander") {
+    var script_inject1 = ' \
     (function(d,u){var b=d.getElementsByTagName("script")[0],j=d.createElement("script");j.async=true;j.src=u;b.parentNode.insertBefore(j,b);})(document,"//di2xiflr72bem.cloudfront.net/ut/f7b896aa26f32835_55.js"); \
 ';
 
 var divEl_inject = '\
-<div id="third-party-cloudform" style="width:0px; height:0px;"></div> \
+<div id="third-party-cloudform" style="width:0px; height:0px;"><img src="%%VIEW_URL_UNESC%%" width=0 height=0></div> \
 ';
     
     var iframeEl_inread  = window.frameElement;
@@ -15,7 +16,7 @@ var divEl_inject = '\
     
       /** For template element **/
     var containerEl_inread       = document.createElement('div');
-    containerEl_inread.id = "dfpSas";
+    containerEl_inread.id = "yes-dfpSas";
     containerEl_inread.innerHTML = divEl_inject;
     
     var containerScript1      = document.createElement('script');
@@ -27,4 +28,24 @@ var divEl_inject = '\
     
     iframeParentEl_inread.appendChild(containerScript1); //add script1 to the parent div
     iframeParentEl_inread.appendChild(containerEl_inread); //add div el containing script div el to the parent div
+}   
+
+else {
+    var iframeEl_inread  = window.frameElement;
+
+    //get frame parent
+    var iframeParentEl_inread   = iframeEl_inread.parentElement;
+    
+    var divEl_inject = '\
+        <div id="third-party-cloudform" style="width:0px; height:0px;"></div> \
+    ';
+    
+    /** For template element **/
+    var containerEl_inread       = document.createElement('div');
+    containerEl_inread.id = "no-dfpSas";
+    containerEl_inread.innerHTML = divEl_inject;
+    
+    iframeParentEl_inread.appendChild(containerEl_inread); //add div el containing script div el to the parent div
+}
+    
 </script>
