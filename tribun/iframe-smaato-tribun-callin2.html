@@ -1,0 +1,128 @@
+<script>
+    // Tweaking iframe
+    var iframeEl = window.frameElement;
+    var iframeParentEl = iframeEl.parentElement;
+    var wScreen = window.parent.innerWidth || window.parent.document.documentElement.clientWidth|| window.parent.document.body.clientWidth; 
+    var hScreen = window.parent.innerHeight || window.parent.document.documentElement.clientHeight|| window.parent.document.body.clientHeight; 
+    var wMateri = 320;
+    var hMateri = 480;
+    var newLeftPopup = ((wScreen - wMateri) / 2) ; // for left to make sure it display on center area
+    var newTopPopup = ((hScreen - hMateri) / 2) ; // for top to make sure it display on center area
+    var afterTopPopup = newTopPopup+40;
+
+    /** Adding the close button **/
+    // 65 = the width of close button
+    // 25 = the height of close button
+    // 320 = width of popup material
+    // 480 = height of popup material
+    // 28 = the separation between popup and close button 
+    var leftClose = ((wScreen - wMateri) / 2) ;
+    var topClose = (((hScreen - hMateri) / 2) - 28 + 40) ;
+    var btnCloseStat = 'yes';
+    
+    /** Prepare to ceate close button **/
+    var elemDiv = document.createElement('div');
+    var btnCloseEl= '';
+    if(btnCloseStat == 'yes' || btnCloseStat == '') {
+        btnCloseEl= ' \
+        <div id="dfp-close-popup" style="position:fixed; z-index: 99999; top: '+topClose+'px; margin-left: '+leftClose+'px; cursor:pointer; width: 65px; height: 25px; border-radius: 3px; font-family: arial, serif; font-size: 13.5px; background:red; color:white"> \
+                &nbsp; close [x] \
+        </div> \
+        <div id="dfp-beacon-%%CACHEBUSTER%%" class="dfp-popup-ad" style="visibility: hidden;"> \
+            <img src="%%VIEW_URL_UNESC%%http://tribun-3.s3-ap-southeast-1.amazonaws.com/ads/pixel.png" width="0" border="0" height="0" style="display: none; visibility: hidden;"> \
+        </div>';
+    }
+    else if(btnCloseStat == 'bundle'){
+        topClose = topClose + 22.5; // 22.5 = the separation between popup and close button
+        btnCloseEl= ' \
+        <div id="dfp-close-popup" style="position:fixed; z-index: 99999; top: '+topClose+'px; right: 40px; cursor: pointer; width: 40px; height: 40px; border-radius: 3px; background: transparent;"> \
+        </div> \
+        <div id="dfp-beacon-%%CACHEBUSTER%%" class="dfp-popup-ad" style="visibility: hidden;"> \
+            <img src="%%VIEW_URL_UNESC%%http://tribun-3.s3-ap-southeast-1.amazonaws.com/ads/pixel.png" width="0" border="0" height="0" style="display: none; visibility: hidden;"> \
+        </div>';
+    }
+    else{
+        btnCloseEl= '';
+    }
+    elemDiv.innerHTML = btnCloseEl;
+    /** Endof Prepare to ceate close button **/
+    
+    //Tweaking the client script, when all html elements have been loaded inside iframe
+    window.addEventListener("load", function(){ 
+        /** Prepare to call the banner **/ 
+        var getElPopup = document.getElementById("smaato_modal_container");
+        if(getElPopup) { // Check element (client), if exist show the iframe up
+            getElPopup.style.margin = "0"; // client container
+            iframeEl.style.width = wMateri+"px";
+            iframeEl.style.height = hMateri+"px";
+            iframeEl.style.position = "fixed";
+            iframeEl.style.zIndex = "9999";
+            iframeEl.style.left = newLeftPopup+"px";
+            iframeEl.style.top = afterTopPopup+"px";
+        }
+        /** Endof Prepare to call the banner **/
+        
+        /** Detect close button from client **/ 
+        var getElClose = document.getElementById("_smaato_closeButton");
+        var statusElClose = false;
+        getElClose.onclick = function() {
+            console.log("Click just happened");
+            statusElClose = true;
+            //if(statusElClose == true){ // if element (client) has been clicked, alse remove DFP iframe
+                removeElPopup();
+            //}     
+        };
+
+        function removeElPopup(){ 
+            // Hide the frame banner
+            iframeEl.style.width = "0px";
+            iframeEl.style.height = "0px";
+            iframeEl.style.display = "none";
+        } 
+        /** Detect close button from client **/ 
+        
+        /** Handling close button **/
+        if(! getElClose) { // check element (client), if not exist create the close button element
+            //iframeParentEl.appendChild(elemDiv); //created it when the close button from client is not detected
+            iframeParentEl.appendChild(elemDiv); //created it when the close button from client is not detected
+            console.log("CLOSE BUTTON IS ACTIVATED");
+        }
+        
+        // Close the banner when user click/tap the close button 
+        //var theCloseEl = window.parent.document.getElementById("dfp-close-popup"); 
+        var theCloseEl = document.getElementById("dfp-container-close-popup"); 
+        if(theCloseEl && btnCloseStat == 'yes') {
+            theCloseEl.addEventListener("mouseup", removeElPopupUs, false); 
+            theCloseEl.addEventListener("touchend", removeElPopupUs, false); 
+        }
+        function removeElPopupUs(){ 
+            // Hide the frame banner
+            removeElPopup();
+            theCloseEl.parentNode.removeChild(theCloseEl); 
+        } 
+        /** Endof Handling close button **/
+    }, true);   
+</script>   
+
+<div id="dfp-container-close-popup"></div>
+
+<!-- The client script is here -->
+<div id="smaatoad" style="padding:0px"></div>
+<script type="text/javascript" src="https://soma-assets.smaato.net/js/smaatoAdTag.js"></script>
+<script>
+SomaJS.loadAd({
+    adDivId: "smaatoad",
+    publisherId: 1100000649,
+    adSpaceId: 130283372,
+    modalDisplay: true,
+    shouldShowModal: function() {
+        console.log("Modal is going to be shown!");
+        return true;
+    },
+    modalClosedCallback: function() {
+        console.log("The modal is closed!");
+    },
+    dimension: "full_320x480"
+});
+</script>
+<!-- Endof client script-->
